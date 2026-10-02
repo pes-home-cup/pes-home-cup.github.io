@@ -1,0 +1,35 @@
+/* Use the same waist-up framing in every compact portrait context.
+   Profiles remove unequal camera framing without changing anyone's face. */
+img[data-player]{--portrait-scale:1;--portrait-x:0%;transform-origin:center top}
+img[data-player=tai]{--portrait-scale:1;--portrait-x:0%}
+img[data-player=minh]{--portrait-scale:1.12;--portrait-x:-2%}
+img[data-player=hoang]{--portrait-scale:1.09;--portrait-x:-5%}
+img[data-player=bau]{--portrait-scale:1.1;--portrait-x:0%}
+img[data-player=kha]{--portrait-scale:1.1;--portrait-x:-5%}
+img[data-player=hiep]{--portrait-scale:.92;--portrait-x:0%}
+img[data-player=bac]{--portrait-scale:1.08;--portrait-x:3%}
+img[data-player=bach]{--portrait-scale:1.42;--portrait-x:0%}
+.team-cutouts img,.lineup-player img,.avatars img,.invite-player-button img,.public-player-card>img{translate:var(--portrait-x) 0;scale:var(--portrait-scale)}
+.public-player-card:hover>img{scale:calc(var(--portrait-scale) * 1.025)}
+.team-cutouts img,.lineup-player img,.avatars img,.invite-player-button img{object-fit:cover;object-position:var(--portrait-focus,50%) top;scale:1;translate:0 0}
+img[data-player=minh]{--portrait-focus:44%}img[data-player=hoang]{--portrait-focus:32%}img[data-player=bau]{--portrait-focus:57%}img[data-player=kha]{--portrait-focus:45%}img[data-player=bac]{--portrait-focus:70%}img[data-player=bach]{--portrait-focus:55%}
+.invite-player-button img{width:67%;left:16.5%;right:auto;mask-image:linear-gradient(#000 0% 90%,transparent)}
+.lineup-player img{mask-image:linear-gradient(#000 0% 90%,transparent)}
+/* Bách's new source includes hips: crop that added length consistently with
+   the other portraits' waist-up view; small displays keep the head readable. */
+.slot-media>img[data-player=bach]{object-fit:cover;object-position:center 12%;width:100%;height:100%}
+.invite-photo>img[data-player=bach]{object-fit:cover;object-position:center 12%}
+.hero-art .hero-player{object-fit:cover;object-position:center top;width:26%;height:63%;clip-path:inset(0);mask-image:linear-gradient(90deg,transparent,#000 7% 93%,transparent);filter:drop-shadow(0 0 4px #7dacff66) drop-shadow(0 8px 14px #0005)}
+.hero-art .hero-player[data-player=tai]{left:0;bottom:170px;height:63%;object-position:50% top}
+.hero-art .hero-player[data-player=minh]{left:25%;bottom:170px;height:63%;object-position:44% top}
+.hero-art .hero-player[data-player=hoang]{left:50%;bottom:170px;height:63%;object-position:32% top}
+.hero-art .hero-player[data-player=bau]{left:75%;bottom:170px;height:63%;object-position:57% top}
+.hero-art .hero-player[data-player=kha]{left:0;bottom:0;height:63%;object-position:45% top}
+.hero-art .hero-player[data-player=hiep]{left:25%;bottom:0;height:58%;object-position:50% top}
+.hero-art .hero-player[data-player=bac]{left:50%;bottom:0;height:63%;object-position:70% top}
+.hero-art .hero-player[data-player=bach]{left:75%;bottom:0;height:63%;object-position:55% top}
+.knockout-duo img.portrait-bach{object-fit:cover;object-position:center 5%}
+.champion-portraits .knockout-duo img.portrait-bach{object-fit:cover;object-position:center 10%}
+@media(max-width:1000px){.hero-art .hero-player[data-player=tai],.hero-art .hero-player[data-player=minh],.hero-art .hero-player[data-player=hoang],.hero-art .hero-player[data-player=bau]{bottom:160px}}
+@media(max-width:700px){.hero-art .hero-player[data-player=tai],.hero-art .hero-player[data-player=minh],.hero-art .hero-player[data-player=hoang],.hero-art .hero-player[data-player=bau]{bottom:125px}}
+@media(max-width:420px){.hero-art .hero-player[data-player=tai],.hero-art .hero-player[data-player=minh],.hero-art .hero-player[data-player=hoang],.hero-art .hero-player[data-player=bau]{bottom:100px}}

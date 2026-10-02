@@ -1,0 +1,11 @@
+/* One persistent stadium light rig for the public page and all six desk views.
+   The alpha asset contains light shafts only: lamps and architecture stay still. */
+body .broadcast-background .ambient-light{display:block;position:absolute;top:0;left:-33%;right:auto;width:76%;height:110%;border-radius:0;background:url('assets/draw-ref/light-fan.webp') center top/100% 100% no-repeat;filter:none;opacity:.16;mix-blend-mode:screen;pointer-events:none;--ray-start:-32deg;--ray-end:-6deg;transform-origin:50% 4%;animation:arena-outer-sweep 11s ease-in-out -3s infinite alternate;will-change:transform;z-index:1}
+body .broadcast-background .ambient-right{left:auto;right:-33%;--ray-start:6deg;--ray-end:32deg;animation-duration:14s;animation-delay:-8s}
+.outer-particles{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.outer-particle{position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);object-fit:contain;opacity:0;mix-blend-mode:screen;animation:arena-outer-drift var(--duration) linear var(--delay) infinite;will-change:transform,opacity}
+.arena-paused .ambient-light,.arena-paused .outer-particle,.arena-paused .stage-sweep,.arena-paused .arena-mote{animation-play-state:paused!important}
+@keyframes arena-outer-sweep{from{opacity:.1;transform:rotate(var(--ray-start))}to{opacity:.27;transform:rotate(var(--ray-end))}}
+@keyframes arena-outer-drift{0%,100%{opacity:0;transform:translate3d(0,25px,0) scale(.7)}25%,60%{opacity:var(--alpha)}90%{opacity:0;transform:translate3d(24px,-85px,0) scale(1)}}
+@media(max-width:800px){body .broadcast-background .ambient-light{width:90%;left:-41%;--ray-start:-25deg;--ray-end:-9deg}body .broadcast-background .ambient-right{left:auto;right:-41%;--ray-start:9deg;--ray-end:25deg}.outer-particle:nth-child(n+11){display:none}}
+@media(prefers-reduced-motion:reduce){body .broadcast-background .ambient-light,.outer-particles{display:none!important}}
